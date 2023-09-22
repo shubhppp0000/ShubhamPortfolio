@@ -1,0 +1,2700 @@
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 30px;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ff8a00), to(#da1b60));
+    box-shadow: inset 2px 2px 2px rgba(255, 255, 255, .25), inset -2px -2px 2px rgba(0, 0, 0, .25);
+}
+
+::-webkit-scrollbar-track {
+    background-color: #fff;
+    background: linear-gradient(to right, #201c29, #201c29 1px, #100e17 1px, #100e17);
+}
+
+
+.inline-photo {
+    border: 1em solid #fff;
+    border-bottom: 4em solid #fff;
+    border-radius: .25em;
+    box-shadow: 1em 1em 2em .25em rgba(0, 0, 0, .2);
+    margin: 2em auto;
+    opacity: 0;
+    transform: translateY(4em) rotateZ(-5deg);
+    transition: transform 4s .25s cubic-bezier(0, 1, .3, 1),
+        opacity .3s .25s ease-out;
+    max-width: 600px;
+    width: 40%;
+    will-change: transform, opacity;
+}
+
+.inline-photo.is-visible {
+    opacity: 1;
+    transform: rotateZ(-2deg);
+}
+
+.is-visible .main-photo {
+    transform: none;
+}
+
+.is-visible .heading {
+    transform: translate(-50%, -50%);
+}
+
+.reveal {
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: 1s all ease;
+}
+
+.reveal.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Reset styles for the body */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Navbar styles */
+#navbar {
+    background-color: black;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    z-index: 1;
+}
+
+#navbar #nav #logo i {
+    font-weight: bolder;
+    color: white;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 9rem;
+}
+
+#navbar #nav #logo i:hover {
+    color: orange;
+}
+
+#navbar #nav {
+    width: 85%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+#navbar #nav #logo {
+    margin-right: auto;
+}
+
+#navbar #nav #navcon ul {
+    list-style-type: none;
+    color: white;
+    display: flex;
+}
+
+#navbar #nav #navcon ul li {
+    margin-left: 20px;
+    font-weight: bold;
+    --b: 0.1em;
+    --c: orange;
+    color: white;
+    padding-block: var(--b);
+    background:
+        linear-gradient(var(--c) 50%, #000 0) 0% calc(100% - var(--_p, 0%))/100% 200%,
+        linear-gradient(var(--c) 0 0) 0% var(--_p, 0%)/var(--_p, 0%) var(--b) no-repeat;
+    -webkit-background-clip: text, padding-box;
+    background-clip: text, padding-box;
+    transition: .3s var(--_s, 0s) linear, background-size .3s calc(.3s - var(--_s, 0s));
+}
+
+#navbar #nav #navcon ul li:hover {
+    color: orange;
+    cursor: pointer;
+    --_p: 100%;
+    --_s: .3s;
+}
+
+#navcon ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+#navcon ul li a:hover {
+    color: orange;
+}
+
+#navcon ul li a:active {
+    color: #fff;
+}
+
+#navcon ul.active {
+    right: 0;
+
+}
+
+/* Hamburger */
+
+.hamburger__toggle {
+    display: none;
+    position: relative;
+    right: 2rem;
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    background-color: black;
+}
+
+.hamburger__icon,
+.hamburger__icon::before,
+.hamburger__icon::after {
+    position: absolute;
+    width: 1.9rem;
+    height: 0.2rem;
+    background-color: white;
+}
+
+.hamburger__icon {
+    top: calc(50% - 2px);
+    left: calc(50% - 15px);
+}
+
+.hamburger__icon::before,
+.hamburger__icon::after {
+    content: "";
+    left: 0;
+}
+
+.hamburger__icon::before {
+    bottom: 8px;
+}
+
+.hamburger__icon::after {
+    top: 8px;
+}
+
+.toggled .hamburger__icon {
+    height: 0.1rem;
+    width: 2rem;
+    left: 5px;
+    top: calc(50% - 2px);
+    left: calc(50% - 15px);
+    transform: rotate(-45deg);
+    background-color: red;
+}
+
+.toggled .hamburger__icon::after {
+    height: 0.1rem;
+    width: 2rem;
+    top: -1px;
+    transform: rotate(-270deg);
+    background-color: red;
+}
+
+.toggled .hamburger__icon::before {
+    transform: scale(0);
+}
+
+.hamburger__icon,
+.hamburger__icon::after {
+    transition: all 0.3s linear;
+}
+
+/* Navbar Section Ends Here */
+
+/* Body Section Starts Here */
+#bodysection {
+    background-color: #333333;
+    width: 100%;
+    color: white;
+    overflow: hidden;
+    z-index: 0;
+}
+
+#bodysection #bodydiv {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 2em;
+    padding: 2em 2em;
+    font-size: larger;
+    font-weight: 900;
+    display: flex;
+}
+
+#bodysection #bodydiv #descdiv .s1 {
+    color: red;
+}
+
+#bodysection #bodydiv #descdiv .typewrite {
+    color: #FFD700;
+    text-decoration: none;
+}
+
+#bodysection {
+    position: relative;
+    top: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    min-height: 100vh;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.5;
+    align-items: center;
+    justify-content: center;
+}
+
+#bodysection #particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#bodysection #bodydiv #selfdiv img {
+    width: 70%;
+    border-radius: 100%;
+}
+
+#bodysection #bodydiv #selfdiv img:hover {
+    box-shadow: 0 5px 15px rgb(251, 255, 1);
+}
+
+#bodysection #bodydiv #selfdiv {
+    text-align: center;
+    cursor: pointer;
+}
+
+#bodysection #bodydiv {
+    z-index: 1;
+}
+
+#bodysection #bodydiv #descdiv {
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#bodysection #bodydiv #descdiv i {
+    color: #F5F5DC;
+}
+
+#button {
+    display: inline-block;
+    border-radius: 4em;
+    background-color: green;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: medium;
+    padding: 1rem;
+    width: 40%;
+    transition: all 0.5s;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#button:hover {
+    background-color: rgb(87, 87, 192);
+}
+
+#button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+#button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+#button:hover span {
+    padding-right: 25px;
+}
+
+#button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+#bodysection #bodydiv #descdiv ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    padding-top: 1rem;
+    gap: 1rem;
+}
+
+#bodysection #bodydiv #descdiv ul li {
+    border-radius: 100%;
+    background-color: blueviolet;
+    color: white;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100%;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#bodysection #bodydiv #descdiv ul li:nth-child(1):hover {
+    background-color: #0A66C2;
+    transform: scale(1.1);
+    box-shadow: 0 0 5px lightblue;
+}
+
+#bodysection #bodydiv #descdiv ul li:nth-child(2):hover {
+    background-color: black;
+    transform: scale(1.1);
+    box-shadow: 0 0 5px gray;
+}
+
+#bodysection #bodydiv #descdiv ul li:nth-child(3):hover {
+    background-color: black;
+    transform: scale(1.1);
+    box-shadow: 0 0 5px gray;
+}
+
+#bodysection #bodydiv #descdiv ul li:nth-child(4):hover {
+    background-color: #0088cc;
+    transform: scale(1.1);
+    box-shadow: 0 0 5px skyblue;
+}
+
+#bodysection #bodydiv #descdiv ul li:nth-child(5):hover {
+    background-image: linear-gradient(#405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #F77737, #FCAF45);
+    transform: scale(1.1);
+    box-shadow: 0 0 5px gold;
+}
+
+#bodysection #bodydiv #descdiv ul li:nth-child(6):hover {
+    background-color: #FFFC00;
+    transform: scale(1.1);
+    text-shadow: 0 0 5px white;
+}
+
+/* Body Section Ends Here  */
+
+/* About Me Section Starts Here */
+#aboutme {
+    padding-top: 1rem;
+    background-image: linear-gradient(orange, white, green);
+    padding-bottom: 1rem;
+    position: relative;
+    top: 3rem;
+}
+
+#aboutme #header span {
+    color: purple;
+}
+
+#aboutme #header {
+    text-align: center;
+    font-size: 1rem;
+}
+
+#aboutme #bodyaboutme {
+    margin: 0 auto;
+    width: 80%;
+    display: flex;
+    height: 25rem;
+}
+
+#aboutme #bodyaboutme #imgam {
+    width: 40%;
+    text-align: center;
+}
+
+#aboutme #bodyaboutme #imgam img {
+    max-width: 91%;
+    height: 23rem;
+    border-radius: 2rem;
+    filter: grayscale(100%);
+}
+
+#aboutme #bodyaboutme #imgam img:hover {
+    filter: grayscale(0);
+    transition: 0.5s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+#aboutme #bodyaboutme #desam {
+    width: 60%;
+}
+
+#aboutme #bodyaboutme #desam #dam {
+    margin: 0 auto;
+    width: 90%;
+    line-height: 0;
+}
+
+#aboutme #bodyaboutme #desam #dam h3 {
+    font-family: 'Roboto Slab', serif;
+}
+
+#aboutme #bodyaboutme #desam #dam h5 {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+#aboutme #bodyaboutme #desam #dam p {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    font-family: 'Roboto Slab', serif;
+}
+
+#aboutme #bodyaboutme #desam #dam p span {
+    color: #2438e9;
+}
+
+#aboutme #bodyaboutme #desam #dam #bttn {
+    display: inline-block;
+    border-radius: 1em;
+    background-color: rgb(0, 19, 128);
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: medium;
+    padding: 1rem;
+    width: 30%;
+    transition: all 0.5s;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#aboutme #bodyaboutme #desam #dam #bttn:hover {
+    background-color: rgb(51, 51, 155);
+}
+
+#aboutme #bodyaboutme #desam #dam #bttn span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s ease-in-out;
+}
+
+#aboutme #bodyaboutme #desam #dam #bttn span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+#aboutme #bodyaboutme #desam #dam #bttn:hover span {
+    padding-right: 25px;
+}
+
+#aboutme #bodyaboutme #desam #dam #bttn:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+/* About Me Section Ends Here */
+
+/* Skills & Abilities Section Starts Here */
+#sectionabilites {
+    border: 1px solid black;
+    background-color: #5604a3;
+    padding-bottom: 2rem;
+    position: relative;
+    top: 3rem;
+}
+
+#sectionabilites #header {
+    text-align: center;
+    color: white;
+}
+
+#sectionabilites #header span {
+    color: #ffe600;
+}
+
+#sectionabilites #bodysa {
+    background-color: #855daa;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 1rem;
+
+}
+
+table {
+    border-spacing: 1rem;
+    width: 100%;
+    color: white;
+}
+
+table td {
+    border: 1px solid white;
+    background-color: black;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    text-align: center;
+    width: 18%;
+    height: 2rem;
+    font-weight: bold;
+}
+
+table tr td img {
+    width: 4rem;
+    margin: 0 auto;
+}
+
+table tr td:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+/* Skills & Abilities Section Ends Here  */
+
+/* My Education Section Starts Here */
+#myeducation {
+    padding-top: 0.5rem;
+    /* background-color: rgb(61, 118, 223); */
+    background-image: url("./Images/education.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 0.5rem;
+    position: relative;
+    top: 3rem;
+}
+
+#myeducation #meheader h1 {
+    text-align: center;
+    color: white;
+}
+
+#myeducation #meheader h1 span {
+    color: rgb(217, 255, 2);
+}
+
+#myeducation #meheader p {
+    text-align: center;
+    font-weight: bold;
+    line-height: 0;
+    color: black;
+}
+
+#myeducation #mebody {
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: rem;
+}
+
+#myeducation #mebody h3 {
+    color: #000080;
+}
+
+#myeducation #mebody #bachelors #des1 {
+    width: 70%;
+    font-family: 'Roboto Slab', serif;
+    padding: 0.5rem;
+    line-height: 0.5;
+    align-items: center;
+    background-color: lightsteelblue;
+}
+
+#myeducation #mebody #bachelors #des1 h3:nth-child(1) {
+    line-height: 1.2;
+}
+
+#myeducation #mebody #des2,
+#des3 {
+    width: 70%;
+    font-family: 'Roboto Slab', serif;
+    padding: 0.5rem;
+    line-height: 0.5;
+    align-items: center;
+    background-color: wheat;
+}
+
+#myeducation #mebody p {
+    font-size: 0.9rem;
+    color: #833AB4;
+    font-weight: bold;
+}
+
+#myeducation #mebody #img1,
+#img2,
+#img3 {
+    width: 30%;
+}
+
+#myeducation #mebody #img1 img,
+#myeducation #mebody #img2 img,
+#myeducation #mebody #img3 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#myeducation #mebody #bachelors,
+#diploma,
+#ssc {
+    display: flex;
+    margin-bottom: 2rem;
+    justify-content: center;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+#myeducation #mebody #bachelors:hover,
+#diploma:hover,
+#ssc:hover {
+    box-shadow: 5px 5px 10px rgba(255, 255, 255, 0.3);
+}
+
+#myeducation #mebody #diploma,
+#ssc {
+    height: 7rem;
+}
+
+/* My Education Section Ends Here */
+
+/* Projects Section Starts Here */
+#projects {
+    background-size: 100vh;
+    background-color: lightcyan;
+    padding: 0.5rem;
+    position: relative;
+    top: 3rem;
+}
+
+#projects h1 {
+    text-align: center;
+}
+
+#projects h1 span {
+    color: rgb(193, 44, 238);
+}
+
+#projects table tr th {
+    color: red;
+}
+
+#projects table td {
+    border-radius: 100%;
+    height: 10rem;
+}
+
+#projects #pbody {
+    width: 85%;
+    margin: 0 auto;
+}
+
+td.button-like {
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    transition: filter 0.3s;
+}
+
+td.button-like:hover {
+    background-color: #0056b3;
+}
+
+#projects table td.button-like:not(:hover) {
+    filter: blur(5px);
+}
+
+/* Projects Section Ends Here */
+
+/* Publications Section Starts Here */
+#publications {
+    padding: 1rem;
+    background-color: palevioletred;
+    position: relative;
+    top: 3rem;
+}
+
+#publications #pbheader h1 {
+    text-align: center;
+}
+
+#publications #pbheader h1 i {
+    color: rgb(46, 70, 207);
+}
+
+#publications #pbbody .ptb {
+    background-color: darksalmon;
+    align-items: center;
+}
+
+#publications #pbbody .ptb h3 {
+    font-size: 1rem;
+    color: #333333;
+    padding: 0.5rem;
+}
+
+#publications #pbbody .ptb img {
+    margin: 0 auto;
+    width: 80%;
+    height: 8rem;
+}
+
+#publications #pbbody {
+    width: 90%;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+#publications #pbbody .ptb {
+    width: 25%;
+    padding: 10px;
+    text-align: center;
+    vertical-align: top;
+}
+
+#publications #pbbody .ptb h3 {
+    margin-top: 10px;
+}
+
+#publications #pbbody .ptb button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 0.8rem 1rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    border-radius: 0.4rem;
+}
+
+#publications #pbbody .ptb button i {
+    color: lightgreen;
+}
+
+#publications #pbbody .ptb button:hover i {
+    width: 15px;
+    height: 10px;
+    position: absolute;
+    transform: translateX(60px);
+    opacity: 0;
+    -webkit-transition: all .25s cubic-bezier(.14, .59, 1, 1.01);
+    transition: all .15s cubic-bezier(.14, .59, 1, 1.01);
+    margin: 0;
+    padding: 0 5px;
+}
+
+#publications #pbbody .ptb button:hover i {
+    width: 15px;
+    opacity: 0;
+    transform: translateX(5px);
+    display: inline;
+}
+
+/* Publications Section Ends Here */
+
+/* Internship Section Starts Here */
+#internships {
+    position: relative;
+    top: 3rem;
+    padding: 1rem;
+    background-color: rgb(47, 213, 255);
+}
+
+#internheader h1 {
+    text-align: center;
+}
+
+#internbody h1 span {
+    color: rgb(255, 0, 13);
+}
+
+#internbody table td {
+    background-color: gray;
+    height: 25rem;
+    line-height: 0;
+}
+
+#internbody table td h5 {
+    color: aquamarine;
+    font-size: large;
+}
+
+#internbody table td h5:nth-child(2) {
+    color: yellowgreen;
+}
+
+#internbody table td p {
+    color: rgb(0, 19, 128);
+}
+
+#internbody table td img {
+    width: 60%;
+    height: 12rem;
+}
+
+/* Internship Section Ends Here */
+
+/* Get In Touch Sections Starts Here */
+#getintouch {
+    position: relative;
+    top: 3rem;
+    background-color: lightsteelblue;
+    padding: 1rem;
+    height: 80vh;
+}
+
+#getintouch #githeader h1 {
+    color: black;
+    text-align: center;
+}
+
+#getintouch #githeader span {
+    color: #2506ad;
+}
+
+#getintouch #gitbody {
+    margin: 0 auto;
+    width: 80%;
+    height: 50vh;
+    background-color: gainsboro;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: row;
+    height: 25rem;
+    box-shadow: 1em 1em 2em .25em rgba(0, 0, 0, .2);
+}
+
+#getintouch #gitbody #gitimg {
+    flex: 1;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+#getintouch #gitbody #gitdescrip {
+    flex: 1;
+}
+
+
+#gitbody #gitimg img {
+    width: 95%;
+    height: 80%;
+
+}
+
+#gitbody #gitdescrip {
+    margin-top: 2rem;
+}
+
+.input-container {
+    position: relative;
+    width: 80%;
+}
+
+.input-container input,
+.input-container textarea {
+    display: block;
+    margin: 0 auto;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 0.5px solid black;
+    background-color: rgb(209, 234, 243);
+    width: 100%;
+    padding-left: 2rem;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 600;
+}
+
+.input-container textarea {
+    height: 6rem;
+    resize: none;
+    overflow-y: hidden;
+}
+
+.icon {
+    position: absolute;
+    top: 30%;
+    transform: translateY(-50%);
+    left: 0.5rem;
+}
+
+.icons {
+    position: absolute;
+    top: 17%;
+    transform: translateY(-50%);
+    left: 0.5rem;
+}
+
+#gitbtn {
+    position: relative;
+    top: 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: #2506ad;
+    color: white;
+    height: 3rem;
+    width: 7rem;
+    font-weight: bold;
+    right: 0;
+}
+
+#gitbtn:hover {
+    background-color: #5330ee;
+}
+
+#gitbtn:hover i {
+    transform: translateX(6px);
+}
+
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* Get In Touch Sections Ends Here */
+
+/* Footer Section Starts Here */
+#footersection {
+    background-color: black;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    padding: 2rem 0;
+    
+}
+
+#footersection #footerdiv {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.footer-content {
+    flex: 1;
+    margin-right: 2rem;
+    line-height: 2;
+}
+
+.footer-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.footer-content p {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+#footersection .footer-content .social-icons {
+    font-size: 1.5rem;
+}
+
+#footersection .footer-content .social-icons i 
+{
+    border-radius: 100%;
+    background-color: purple;
+    padding: 0.3rem;
+}
+
+#footersection .footer-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+#footersection .footer-content ul li {
+    margin-bottom: 0.5rem;
+}
+
+#footersection .footer-content ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+#footersection .footer-content ul li a:hover {
+    color: orange;
+}
+
+#footersection .footer-content ul li i 
+{
+    border-radius: 100%;
+    padding: 0.1rem;
+    color: black;
+    background-color: white;
+}
+
+#footersection .footer-content ul li i:hover 
+{
+    background-color: orange;
+}    
+
+#footersection .footer-content .social-icons i:nth-child(1):hover {
+    background-color: #0A66C2;
+    transform: scale(1.1);
+    box-shadow: 0 0 5px lightblue;
+} 
+
+#footersection .footer-content .social-icons i:nth-child(2):hover {
+    background-color: black;
+    transform: scale(1.1);
+    box-shadow: 0 0 5px gray;
+}
+
+#footersection .footer-content .social-icons i:nth-child(3):hover {
+    background-color: black;
+    transform: scale(1.1);
+    box-shadow: 0 0 5px gray;
+}
+
+#footersection .footer-content .social-icons i:nth-child(4):hover {
+    background-color: #0088cc;
+    transform: scale(1.1);
+    box-shadow: 0 0 5px skyblue;
+}
+
+#footersection .footer-content .social-icons i:nth-child(5):hover {
+    background-image: linear-gradient(#405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #F77737, #FCAF45);
+    transform: scale(1.1);
+    box-shadow: 0 0 5px gold;
+}
+
+#footersection .footer-content .social-icons i:nth-child(6):hover {
+    background-color: #FFFC00;
+    transform: scale(1.1);
+    text-shadow: 0 0 5px white;
+}
+
+#footersection #last 
+{
+    text-align: center;
+    border-top: 1px solid white;
+}
+/* Footer Section Ends Here */
+/* Add this CSS to your existing stylesheet or link a new CSS file */
+.scroll-to-top-button {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 99;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.scroll-to-top-button:hover {
+    background-color: #0056b3;
+}
+
+/* Media Query Navbar and BodySection */
+@media screen and (max-width: 768px) {
+    .inline-photo {
+        height: 12rem;
+        width: 15rem;
+    }
+
+    #navbar {
+        position: fixed;
+    }
+
+    .hamburger__toggle {
+        display: block;
+    }
+
+    #navbar #nav #logo i {
+        font-size: 1rem;
+    }
+
+    #navbar #nav #logo {
+        position: relative;
+        left: 1rem;
+        top: 0;
+    }
+
+    #navbar #nav {
+        width: 100%;
+        height: 2rem;
+    }
+
+    #navbar #nav #navcon ul {
+        display: none;
+    }
+
+    #navbar #nav #navcon ul.active {
+        display: block;
+        align-items: center;
+        flex-direction: column;
+        top: 2.2rem;
+        position: absolute;
+        right: -1px;
+        background-color: #0e0f31;
+        width: 60%;
+        line-height: 4rem;
+        transition: left 0.3s ease-in-out;
+        height: 100vh;
+        position: fixed;
+        overflow-y: auto;
+    }
+
+    #navcon .bar {
+        display: block;
+        color: white;
+        right: 1rem;
+        top: 0.2rem;
+
+    }
+
+    #bodysection #bodydiv {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #bodysection #bodydiv #descdiv {
+        width: 100%;
+    }
+
+    #bodysection #bodydiv #selfdiv img {
+        width: 80%;
+    }
+
+    #aboutme {
+        height: 100vh;
+    }
+
+    #aboutme #bodyaboutme {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #aboutme #bodyaboutme #imgam {
+        width: 80%;
+        height: 20rem;
+    }
+
+    #aboutme #bodyaboutme #imgam img {
+        width: 80%;
+        height: 20rem;
+    }
+
+    #aboutme #bodyaboutme #desam {
+        padding: 1rem;
+        width: 100%;
+    }
+
+    #aboutme #bodyaboutme #desam #dam #bttn {
+        width: 50%;
+    }
+
+    #secitonabilites {
+        height: 100vh;
+    }
+
+    #sectionabilites #bodysa {
+        width: 90%;
+    }
+
+    #sectionabilites table {
+        width: 90%;
+    }
+
+    #sectionabilites table td {
+        width: 100%;
+        display: flex;
+        text-align: center;
+        padding: 1rem;
+        border: 1px solid #ccc;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #sectionabilites table td p {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+    }
+
+    #sectionabilites table td img {
+        max-width: 2rem;
+        margin: 0 auto;
+        width: 50%;
+    }
+
+    #myeducation {
+        height: 67vh;
+    }
+
+    #myeducation p {
+        font-size: 0.9rem;
+    }
+
+    #myeducation #mebody {
+        width: 90%;
+    }
+
+    #myeducation #mebody #bachelors,
+    #myeducation #mebody #diploma,
+    #myeducation #mebody #ssc {
+        flex-direction: column;
+        height: auto;
+    }
+
+    #myeducation #mebody #bachelors #des1 {
+        width: 100%;
+        height: 4rem;
+    }
+
+    #myeducation #mebody #bachelors #des1 h3 {
+        line-height: 0.2;
+    }
+
+    #myeducation #mebody #des2,
+    #myeducation #mebody #des3 {
+        width: 100%;
+        height: 3rem;
+        line-height: 0.2;
+    }
+
+    #myeducation #mebody h3 {
+        padding: 0;
+        font-size: 0.7rem;
+    }
+
+    #myeducation #mebody p {
+        padding: 0;
+        font-size: 0.6rem;
+    }
+
+    #myeducation #mebody #img1,
+    #myeducation #mebody #img2,
+    #myeducation #mebody #img3 {
+        width: 100%;
+        height: 4rem;
+    }
+
+    #projects {
+        height: 100vh;
+
+    }
+
+    #projects #pbody thead th {
+        color: rgb(255, 0, 0);
+    }
+
+    #projects table td {
+        border-radius: 1rem;
+        width: 50%;
+        margin: 0 auto;
+        display: block;
+        height: 3rem;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+    }
+
+    #projects table .t2 td {
+        border-radius: 0.5rem;
+        height: 1.5rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #projects table .t2 td#b1 {
+        height: 3rem;
+    }
+
+    td.button-like:hover {
+        background-color: #0056b3;
+    }
+
+    #projects table td.button-like:not(:hover) {
+        filter: blur(5px);
+    }
+
+    #publications #pbbody {
+        height: 60vh;
+    }
+
+    #publications #pbbody table td {
+        font-size: 0.5rem;
+        height: 5rem;
+    }
+
+    #publications #pbbody table .ptb img {
+        height: 5rem;
+    }
+
+    #publications #pbbody table .ptb button {
+        width: 5rem;
+        font-size: 0.5rem;
+    }
+
+    #internships {
+        height: 90vh;
+    }
+
+    #internships #internbody td {
+        border-radius: 1rem;
+        width: 80%;
+        margin: 0 auto;
+        display: block;
+        height: auto;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+        white-space: nowrap;
+        overflow: auto;
+        padding: 1rem;
+    }
+
+    #internships #internbody td h5,
+    p {
+        font-size: 1rem;
+    }
+
+    #internships #internbody td img {
+        width: 15rem;
+        height: 10rem;
+    }
+
+    #getintouch {
+        height: 90vh;
+    }
+
+    #getintouch #gitbody {
+        display: block;
+    }
+
+    #getintouch #gitbody {
+        height: 38rem;
+        padding: 1rem;
+    }
+
+    #footerdiv {
+        flex-direction: column;
+    }
+
+    .footer-content {
+        margin: 0;
+    }
+}
+@media screen and (max-width: 375px) {
+    .inline-photo {
+        height: 12rem;
+        width: 15rem;
+    }
+
+    #navbar {
+        position: fixed;
+    }
+
+    .hamburger__toggle {
+        display: block;
+    }
+
+    #navbar #nav #logo i {
+        font-size: 1rem;
+    }
+
+    #navbar #nav #logo {
+        position: relative;
+        left: 1rem;
+        top: 0;
+    }
+
+    #navbar #nav {
+        width: 100%;
+        height: 2rem;
+    }
+
+    #navbar #nav #navcon ul {
+        display: none;
+    }
+    #navbar #nav #navcon ul li {
+        left: 0;
+    }
+
+    #navbar #nav #navcon ul.active {
+        display: block;
+        align-items: center;
+        flex-direction: column;
+        top: 2.2rem;
+        position: absolute;
+        right: -1px;
+        background-color: #0e0f31;
+        width: 80%;
+        line-height: 4rem;
+        transition: left 0.3s ease-in-out;
+        height: 100vh;
+        position: fixed;
+        overflow-y: auto;
+        font-size: 0.8rem;
+    }
+
+    #navcon .bar {
+        display: block;
+        color: white;
+        right: 1rem;
+        top: 0.2rem;
+
+    }
+
+    #bodysection #bodydiv {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #bodysection #bodydiv #descdiv {
+        width: 100%;
+    }
+
+    #bodysection #bodydiv #selfdiv img {
+        width: 80%;
+    }
+
+    #aboutme {
+        height: 100vh;
+    }
+
+    #aboutme #bodyaboutme {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #aboutme #bodyaboutme #imgam {
+        width: 80%;
+        height: 20rem;
+    }
+
+    #aboutme #bodyaboutme #imgam img {
+        width: 80%;
+        height: 10rem;
+    }
+
+    #aboutme #bodyaboutme #desam {
+        width: 100%;
+    }
+
+    #aboutme #bodyaboutme #desam #dam #bttn {
+        width: 50%;
+    }
+
+    #secitonabilites {
+        height: 100vh;
+    }
+
+    #sectionabilites #bodysa {
+        width: 90%;
+    }
+
+    #sectionabilites table {
+        width: 90%;
+    }
+
+    #sectionabilites table td {
+        width: 100%;
+        display: flex;
+        text-align: center;
+        padding: 1rem;
+        border: 1px solid #ccc;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #sectionabilites table td p {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+    }
+
+    #sectionabilites table td img {
+        max-width: 2rem;
+        margin: 0 auto;
+        width: 50%;
+    }
+
+    #myeducation {
+        height: 90vh;
+    }
+
+    #myeducation p {
+        font-size: 0.9rem;
+    }
+
+    #myeducation #mebody {
+        width: 90%;
+    }
+
+    #myeducation #mebody #bachelors,
+    #myeducation #mebody #diploma,
+    #myeducation #mebody #ssc {
+        flex-direction: column;
+        height: auto;
+    }
+
+    #myeducation #mebody #bachelors #des1 {
+        width: 100%;
+        height: 4rem;
+    }
+
+    #myeducation #mebody #bachelors #des1 h3 {
+        line-height: 0.2;
+    }
+
+    #myeducation #mebody #des2,
+    #myeducation #mebody #des3 {
+        width: 100%;
+        height: 3rem;
+        line-height: 0.2;
+    }
+
+    #myeducation #mebody h3 {
+        padding: 0;
+        font-size: 0.7rem;
+    }
+
+    #myeducation #mebody p {
+        padding: 0;
+        font-size: 0.6rem;
+    }
+
+    #myeducation #mebody #img1,
+    #myeducation #mebody #img2,
+    #myeducation #mebody #img3 {
+        width: 100%;
+        height: 4rem;
+    }
+
+    #projects {
+        height: 120vh;
+
+    }
+
+    #projects #pbody thead th {
+        color: rgb(255, 0, 0);
+    }
+
+
+    #projects table td {
+        border-radius: 1rem;
+        width: 80%;
+        margin: 0 auto;
+        display: block;
+        height: 3rem;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+    }
+
+    #projects table .t2 td {
+        border-radius: 0.5rem;
+        height: 1.5rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #projects table .t2 td#b1 {
+        height: 3rem;
+    }
+
+    td.button-like:hover {
+        background-color: #0056b3;
+    }
+
+    #projects table td.button-like:not(:hover) {
+        filter: blur(5px);
+    }
+
+    #publications 
+    {
+        height: 80vh;
+    }
+    #publications #pbbody {
+        height: 60vh;
+    }
+
+    #publications #pbbody table td {
+        font-size: 0.5rem;
+        height: 5rem;
+    }
+
+    #publications #pbbody table .ptb img {
+        height: 5rem;
+    }
+
+    #publications #pbbody table .ptb button {
+        width: 5rem;
+        font-size: 0.5rem;
+    }
+
+    #internships {
+        height: 110vh;
+    }
+
+    #internships #internbody td {
+        border-radius: 1rem;
+        width: 80%;
+        margin: 0 auto;
+        display: block;
+        height: auto;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+        white-space: nowrap;
+        overflow: auto;
+        padding: 1rem;
+    }
+
+    #internships #internbody td h5,
+    p {
+        font-size: 1rem;
+    }
+
+    #internships #internbody td img {
+        width: 15rem;
+        height: 10rem;
+    }
+
+    #getintouch {
+        height: 100vh;
+        padding-bottom: 3rem;
+    }
+
+    #getintouch #gitbody {
+        display: block;
+        height: 35rem;
+        padding: 1rem;
+    }
+
+    #footerdiv {
+        flex-direction: column;
+    }
+
+    .footer-content {
+        margin: 0;
+    }
+}
+
+/* @media screen and (max-width: 480px) {
+    #navbar #nav #logo i {
+        font-size: 0.8rem;
+        margin-left: 1rem;
+        width: 8rem;
+    }
+
+    #navbar #nav {
+        width: 100%;
+    }
+
+    #bodysection #bodydiv #descdiv {
+        width: 100%;
+        text-align: center;
+    }
+
+    #bodysection #bodydiv #selfdiv img {
+        width: 80%;
+    }
+    #aboutme 
+    {
+        height: 100vh;
+    }
+    #aboutme #bodyaboutme {
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    #aboutme #bodyaboutme #imgam {
+        width: 80%; 
+        height: 10rem;
+    }
+    #aboutme #bodyaboutme #imgam img{
+        width: 80%; 
+        height: 10rem;
+    }
+    #aboutme #bodyaboutme #desam {
+        padding:1rem;
+        width: 100%;
+    }
+    #aboutme #bodyaboutme #desam #dam #bttn {
+        width: 100%; 
+    }
+}*/
+
+@media screen and (max-width: 820px) {
+    .inline-photo {
+        height: 12rem;
+        width: 15rem;
+    }
+
+    #navbar {
+        position: fixed;
+    }
+
+    .hamburger__toggle {
+        display: block;
+    }
+
+    #navbar #nav #logo i {
+        font-size: 1rem;
+    }
+
+    #navbar #nav #logo {
+        position: relative;
+        left: 1rem;
+        top: 0;
+    }
+
+    #navbar #nav {
+        width: 100%;
+        height: 2rem;
+    }
+
+    #navbar #nav #navcon ul {
+        display: none;
+    }
+
+    #navbar #nav #navcon ul.active {
+        display: block;
+        align-items: center;
+        flex-direction: column;
+        top: 2.2rem;
+        position: absolute;
+        right: -1px;
+        background-color: #0e0f31;
+        width: 60%;
+        line-height: 4rem;
+        transition: left 0.3s ease-in-out;
+        height: 100vh;
+        position: fixed;
+        overflow-y: auto;
+    }
+
+    #navcon .bar {
+        display: block;
+        color: white;
+        right: 1rem;
+        top: 0.2rem;
+    }
+
+    #bodysection #bodydiv {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #bodysection #bodydiv #descdiv {
+        width: 100%;
+    }
+
+    #bodysection #bodydiv #selfdiv img {
+        width: 80%;
+    }
+
+    #aboutme {
+        height: 80vh;
+    }
+
+    #aboutme #bodyaboutme {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #aboutme #bodyaboutme #imgam {
+        width: 80%;
+        height: 25rem;
+    }
+
+    #aboutme #bodyaboutme #imgam img {
+        width: 80%;
+        height: 25rem;
+    }
+
+    #aboutme #bodyaboutme #desam {
+        padding: 2rem;
+        width: 100%;
+        line-height: 1;
+    }
+
+    #aboutme #bodyaboutme #desam #dam #bttn {
+        width: 50%;
+    }
+
+    #sectionabilites {
+        height: 100vh;
+    }
+
+    #sectionabilites #bodysa {
+        width: 90%;
+    }
+
+    #sectionabilites table {
+        width: 95%;
+    }
+
+    #sectionabilites table td {
+        width: 100%;
+        display: flex;
+        text-align: center;
+        padding: 1rem;
+        border: 1px solid #ccc;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #sectionabilites table td p {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+    }
+
+    #sectionabilites table td img {
+        max-width: 2rem;
+        margin: 0 auto;
+        width: 50%;
+    }
+
+    #myeducation {
+        height: 80vh;
+    }
+
+    #myeducation p {
+        font-size: 0.9rem;
+    }
+
+    #myeducation #mebody {
+        width: 90%;
+    }
+
+    #myeducation #mebody #bachelors,
+    #myeducation #mebody #diploma,
+    #myeducation #mebody #ssc {
+        flex-direction: column;
+        height: auto;
+    }
+
+    #myeducation #mebody #bachelors #des1 {
+        width: 100%;
+        height: 4rem;
+    }
+
+    #myeducation #mebody #bachelors #des1 h3 {
+        line-height: 0.2;
+    }
+
+    #myeducation #mebody #des2,
+    #myeducation #mebody #des3 {
+        width: 100%;
+        height: 4rem;
+        line-height: 0.2;
+    }
+
+    #myeducation #mebody h3 {
+        padding: 0;
+        font-size: 0.7rem;
+    }
+
+    #myeducation #mebody p {
+        padding: 0;
+        font-size: 0.6rem;
+    }
+
+    #myeducation #mebody #img1,
+    #myeducation #mebody #img2,
+    #myeducation #mebody #img3 {
+        width: 100%;
+        height: 8rem;
+    }
+
+    #projects {
+        height: 70vh;
+    }
+
+    #projects #pbody thead th {
+        color: rgb(255, 0, 0);
+    }
+
+    #projects table td {
+        border-radius: 1rem;
+        width: 50%;
+        margin: 0 auto;
+        display: block;
+        height: 3rem;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+    }
+
+    #projects table .t2 td {
+        border-radius: 0.5rem;
+        height: 1.5rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #projects table .t2 td#b1 {
+        height: 3rem;
+    }
+
+    td.button-like:hover {
+        background-color: #0056b3;
+    }
+
+    #projects table td.button-like:not(:hover) {
+        filter: blur(5px);
+    }
+
+    #publications #pbbody {
+        height: 40vh;
+    }
+
+    #publications #pbbody table td {
+        font-size: 0.5rem;
+        height: 5rem;
+    }
+
+    #publications #pbbody table .ptb img {
+        height: 5rem;
+    }
+
+    #publications #pbbody table .ptb button {
+        width: 5rem;
+        font-size: 0.5rem;
+    }
+
+    #internships {
+        height: 60vh;
+    }
+
+    #internships #internbody td {
+        border-radius: 1rem;
+        width: 80%;
+        margin: 0 auto;
+        display: block;
+        height: auto;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+        white-space: nowrap;
+        overflow: auto;
+        padding: 1rem;
+    }
+
+    #internships #internbody td h5,
+    p {
+        font-size: 1rem;
+    }
+
+    #internships #internbody td img {
+        width: 15rem;
+        height: 10rem;
+    }
+
+    #getintouch {
+        height: 90vh;
+    }
+
+    #getintouch #gitbody {
+        display: block;
+    }
+
+    #getintouch #gitbody {
+        height: 50rem;
+        padding: 2rem;
+    }
+
+    #footerdiv {
+        flex-direction: column;
+    }
+
+    .footer-content {
+        margin: 0;
+    }
+}
+@media screen and (max-width: 912px) {
+    .inline-photo {
+        height: 12rem;
+        width: 15rem;
+    }
+
+    #navbar {
+        position: fixed;
+    }
+
+    .hamburger__toggle {
+        display: block;
+    }
+
+    #navbar #nav #logo i {
+        font-size: 1rem;
+    }
+
+    #navbar #nav #logo {
+        position: relative;
+        left: 1rem;
+        top: 0;
+    }
+
+    #navbar #nav {
+        width: 100%;
+        height: 2rem;
+    }
+
+    #navbar #nav #navcon ul {
+        display: none;
+    }
+
+    #navbar #nav #navcon ul.active {
+        display: block;
+        align-items: center;
+        flex-direction: column;
+        top: 2.2rem;
+        position: absolute;
+        right: -1px;
+        background-color: #0e0f31;
+        width: 60%;
+        line-height: 4rem;
+        transition: left 0.3s ease-in-out;
+        height: 100vh;
+        position: fixed;
+        overflow-y: auto;
+    }
+
+    #navcon .bar {
+        display: block;
+        color: white;
+        right: 1rem;
+        top: 0.2rem;
+    }
+
+    #bodysection #bodydiv {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #bodysection #bodydiv #descdiv {
+        width: 100%;
+    }
+
+    #bodysection #bodydiv #selfdiv img {
+        width: 80%;
+    }
+
+    #aboutme {
+        height: 80vh;
+    }
+
+    #aboutme #bodyaboutme {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #aboutme #bodyaboutme #imgam {
+        width: 80%;
+        height: 25rem;
+    }
+
+    #aboutme #bodyaboutme #imgam img {
+        width: 80%;
+        height: 25rem;
+    }
+
+    #aboutme #bodyaboutme #desam {
+        padding: 2rem;
+        width: 100%;
+        line-height: 1;
+    }
+
+    #aboutme #bodyaboutme #desam #dam #bttn {
+        width: 50%;
+    }
+
+    #sectionabilites {
+        height: 100vh;
+    }
+
+    #sectionabilites #bodysa {
+        width: 90%;
+    }
+
+    #sectionabilites table {
+        width: 95%;
+    }
+
+    #sectionabilites table td {
+        width: 100%;
+        display: flex;
+        text-align: center;
+        padding: 1rem;
+        border: 1px solid #ccc;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #sectionabilites table td p {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+    }
+
+    #sectionabilites table td img {
+        max-width: 2rem;
+        margin: 0 auto;
+        width: 50%;
+    }
+
+    #myeducation {
+        height: 80vh;
+    }
+
+    #myeducation p {
+        font-size: 0.9rem;
+    }
+
+    #myeducation #mebody {
+        width: 90%;
+    }
+
+    #myeducation #mebody #bachelors,
+    #myeducation #mebody #diploma,
+    #myeducation #mebody #ssc {
+        flex-direction: column;
+        height: auto;
+    }
+
+    #myeducation #mebody #bachelors #des1 {
+        width: 100%;
+        height: 4rem;
+    }
+
+    #myeducation #mebody #bachelors #des1 h3 {
+        line-height: 0.2;
+    }
+
+    #myeducation #mebody #des2,
+    #myeducation #mebody #des3 {
+        width: 100%;
+        height: 4rem;
+        line-height: 0.2;
+    }
+
+    #myeducation #mebody h3 {
+        padding: 0;
+        font-size: 0.7rem;
+    }
+
+    #myeducation #mebody p {
+        padding: 0;
+        font-size: 0.6rem;
+    }
+
+    #myeducation #mebody #img1,
+    #myeducation #mebody #img2,
+    #myeducation #mebody #img3 {
+        width: 100%;
+        height: 8rem;
+    }
+
+    #projects {
+        height: 70vh;
+    }
+
+    #projects #pbody thead th {
+        color: rgb(255, 0, 0);
+    }
+
+    #projects table td {
+        border-radius: 1rem;
+        width: 50%;
+        margin: 0 auto;
+        display: block;
+        height: 3rem;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+    }
+
+    #projects table .t2 td {
+        border-radius: 0.5rem;
+        height: 1.5rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #projects table .t2 td#b1 {
+        height: 3rem;
+    }
+
+    td.button-like:hover {
+        background-color: #0056b3;
+    }
+
+    #projects table td.button-like:not(:hover) {
+        filter: blur(5px);
+    }
+
+    #publications #pbbody {
+        height: 40vh;
+    }
+
+    #publications #pbbody table td {
+        font-size: 0.5rem;
+        height: 5rem;
+    }
+
+    #publications #pbbody table .ptb img {
+        height: 5rem;
+    }
+
+    #publications #pbbody table .ptb button {
+        width: 5rem;
+        font-size: 0.5rem;
+    }
+
+    #internships {
+        height: 60vh;
+    }
+
+    #internships #internbody td {
+        border-radius: 1rem;
+        width: 80%;
+        margin: 0 auto;
+        display: block;
+        height: auto;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+        white-space: nowrap;
+        overflow: auto;
+        padding: 1rem;
+    }
+
+    #internships #internbody td h5,
+    p {
+        font-size: 1rem;
+    }
+
+    #internships #internbody td img {
+        width: 15rem;
+        height: 10rem;
+    }
+
+    #getintouch {
+        height: 90vh;
+    }
+
+    #getintouch #gitbody {
+        display: block;
+    }
+
+    #getintouch #gitbody {
+        height: 50rem;
+        padding: 2rem;
+    }
+
+    #footerdiv {
+        flex-direction: column;
+    }
+
+    .footer-content {
+        margin: 0;
+    }
+}
+@media screen and (max-width: 540px) {
+    .inline-photo {
+        height: 12rem;
+        width: 15rem;
+    }
+
+    #navbar {
+        position: fixed;
+    }
+
+    .hamburger__toggle {
+        display: block;
+    }
+
+    #navbar #nav #logo i {
+        font-size: 1rem;
+    }
+
+    #navbar #nav #logo {
+        position: relative;
+        left: 1rem;
+        top: 0;
+    }
+
+    #navbar #nav {
+        width: 100%;
+        height: 2rem;
+    }
+
+    #navbar #nav #navcon ul {
+        display: none;
+    }
+
+    #navbar #nav #navcon ul.active {
+        display: block;
+        align-items: center;
+        flex-direction: column;
+        top: 2.2rem;
+        position: absolute;
+        right: -1px;
+        background-color: #0e0f31;
+        width: 60%;
+        line-height: 4rem;
+        transition: left 0.3s ease-in-out;
+        height: 100vh;
+        position: fixed;
+        overflow-y: auto;
+    }
+
+    #navcon .bar {
+        display: block;
+        color: white;
+        right: 1rem;
+        top: 0.2rem;
+    }
+
+    #bodysection #bodydiv {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #bodysection #bodydiv #descdiv {
+        width: 100%;
+    }
+
+    #bodysection #bodydiv #selfdiv img {
+        width: 80%;
+    }
+
+    #aboutme {
+        height: 80vh;
+    }
+
+    #aboutme #bodyaboutme {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #aboutme #bodyaboutme #imgam {
+        width: 80%;
+        height: 25rem;
+    }
+
+    #aboutme #bodyaboutme #imgam img {
+        width: 80%;
+        height: 25rem;
+    }
+
+    #aboutme #bodyaboutme #desam {
+        padding: 2rem;
+        width: 100%;
+        line-height: 1;
+    }
+
+    #aboutme #bodyaboutme #desam #dam #bttn {
+        width: 50%;
+    }
+
+    #sectionabilites {
+        height: 100vh;
+    }
+
+    #sectionabilites #bodysa {
+        width: 90%;
+    }
+
+    #sectionabilites table {
+        width: 95%;
+    }
+
+    #sectionabilites table td {
+        width: 100%;
+        display: flex;
+        text-align: center;
+        padding: 1rem;
+        border: 1px solid #ccc;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #sectionabilites table td p {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+    }
+
+    #sectionabilites table td img {
+        max-width: 2rem;
+        margin: 0 auto;
+        width: 50%;
+    }
+
+    #myeducation {
+        height: 80vh;
+    }
+
+    #myeducation p {
+        font-size: 0.9rem;
+    }
+
+    #myeducation #mebody {
+        width: 90%;
+    }
+
+    #myeducation #mebody #bachelors,
+    #myeducation #mebody #diploma,
+    #myeducation #mebody #ssc {
+        flex-direction: column;
+        height: auto;
+    }
+
+    #myeducation #mebody #bachelors #des1 {
+        width: 100%;
+        height: 4rem;
+    }
+
+    #myeducation #mebody #bachelors #des1 h3 {
+        line-height: 0.2;
+    }
+
+    #myeducation #mebody #des2,
+    #myeducation #mebody #des3 {
+        width: 100%;
+        height: 4rem;
+        line-height: 0.2;
+    }
+
+    #myeducation #mebody h3 {
+        padding: 0;
+        font-size: 0.7rem;
+    }
+
+    #myeducation #mebody p {
+        padding: 0;
+        font-size: 0.6rem;
+    }
+
+    #myeducation #mebody #img1,
+    #myeducation #mebody #img2,
+    #myeducation #mebody #img3 {
+        width: 100%;
+        height: 8rem;
+    }
+
+    #projects {
+        height: 70vh;
+    }
+
+    #projects #pbody thead th {
+        color: rgb(255, 0, 0);
+    }
+
+    #projects table td {
+        border-radius: 1rem;
+        width: 50%;
+        margin: 0 auto;
+        display: block;
+        height: 3rem;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+    }
+
+    #projects table .t2 td {
+        border-radius: 0.5rem;
+        height: 1.5rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #projects table .t2 td#b1 {
+        height: 3rem;
+    }
+
+    td.button-like:hover {
+        background-color: #0056b3;
+    }
+
+    #projects table td.button-like:not(:hover) {
+        filter: blur(5px);
+    }
+
+    #publications #pbbody {
+        height: 40vh;
+    }
+
+    #publications #pbbody table td {
+        font-size: 0.5rem;
+        height: 5rem;
+    }
+
+    #publications #pbbody table .ptb img {
+        height: 5rem;
+    }
+
+    #publications #pbbody table .ptb button {
+        width: 5rem;
+        font-size: 0.5rem;
+    }
+
+    #internships {
+        height: 60vh;
+    }
+
+    #internships #internbody td {
+        border-radius: 1rem;
+        width: 80%;
+        margin: 0 auto;
+        display: block;
+        height: auto;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+        white-space: nowrap;
+        overflow: auto;
+        padding: 1rem;
+    }
+
+    #internships #internbody td h5,
+    p {
+        font-size: 1rem;
+    }
+
+    #internships #internbody td img {
+        width: 15rem;
+        height: 10rem;
+    }
+
+    #getintouch {
+        height: 90vh;
+    }
+
+    #getintouch #gitbody {
+        display: block;
+    }
+
+    #getintouch #gitbody {
+        height: 50rem;
+        padding: 2rem;
+    }
+
+    #footerdiv {
+        flex-direction: column;
+    }
+
+    .footer-content {
+        margin: 0;
+    }
+}
+
+
+/*@media screen and (max-width: 912px) {
+    #navbar #nav #logo i {
+        font-size: 1.4rem;
+        margin-left: 2rem;
+    }
+
+    #navbar #nav {
+        width: 100%;
+    }
+
+    #bodysection #bodydiv {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #bodysection #bodydiv #descdiv {
+        width: 100%;
+    }
+
+    #bodysection #bodydiv #selfdiv img {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    #navbar #nav #logo i {
+        font-size: 0.8rem;
+        margin-left: 1rem;
+        width: 8rem;
+    }
+
+    #navbar #nav {
+        width: 100%;
+    }
+
+    #bodysection #bodydiv {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #bodysection #bodydiv #descdiv {
+        width: 100%;
+        text-align: center;
+    }
+
+    #bodysection #bodydiv #selfdiv img {
+        width: 80%;
+    }
+} */
+
+
+
+
+#dance {
+    width: 225px;
+    height: 400px;
+    background-image: url();
+    animation: gangham 4s steps(23, start) infinite,
+        movearound 12s steps(69, end) infinite alternate 44ms;
+    animation-direction: normal, alternate;
+}
+
+@keyframes gangham {
+    0% {
+        background-position: 0 0
+    }
+
+    100% {
+        background-position: -5175px 0
+    }
+}
+
+@keyframes movearound {
+    0% {
+        transform: translatex(0)
+    }
+
+    100% {
+        transform: translatex(600px);
+    }
+}
